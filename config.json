@@ -1,0 +1,46 @@
+{    
+    "mail": {
+        "enabled": false,
+        "api_key": "xkeysib-secret_api_key",
+        "sender": {
+            "name": "cakecms",
+            "email": "cakecms@domain.tld"
+        },
+        "receiver": {
+            "name": "My Name",
+            "email": "mail@domain.tld"
+        }
+    },
+    "cms": {
+        "sic": {
+            "url": "https://cms.sic.saarland",
+            "username": "sic_username",
+            "password": "s3cur3Pa55word",
+            "2FA": {
+                "enabled": true,
+                "secret_base32": "BA5E32"
+            }
+        },
+        "dcms": {
+            "url": "https://dcms.cs.uni-saarland.de",
+            "username": "dcms_username",
+            "password": "diff3r3ntS3cr3t",
+            "2FA": {
+                "enabled": false,
+                "secret_base32": ""
+            }
+        }
+    },
+    "courses": {
+        "mfi": {
+            "url": "https://cms.sic.saarland/mfi",
+            "points": true,
+            "materials": true
+        },
+        "prog": {
+            "url": "https://cms.sic.saarland/prog",
+            "points": true,
+            "materials": true
+        }
+    }
+}

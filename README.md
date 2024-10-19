@@ -10,7 +10,7 @@ Compatible with the Saarland Universities "cakecms" only.
 - More features are planned (including discord notifications)
 
 ## Notice
-The included config is  just an example configuration and need to be configured. You must enter your personal credentials and verify all data and links. You can add arbitrarily many entires for cms and courses and name them as you wish. However, note that adding more courses lead to a longer execution time. It's recommended to only scan for courses taken in the current semester and delete data from courses in the data.json after taking them as the whole json will be converted into a dictionary which otherwise leads to an unnecessary overhead.
+The included config is just an example configuration and needs to be configured. You must enter your personal credentials and verify all data and links. You can add arbitrarily many entires for cms and courses and name them as you wish. However, note that adding more courses lead to a longer execution time. It's recommended to only scan for courses taken in the current semester and delete data from courses in the data.json after taking them as the whole json will be converted into a dictionary which otherwise leads to an unnecessary overhead.
 
 ## Update frequency
 I ask you to not increase the frequency of scans to more than once every 15 minutes as this would lead to performance issues on the server side. This script shall not be abused to cause any harm - use it with care!

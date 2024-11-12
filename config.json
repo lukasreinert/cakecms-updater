@@ -1,14 +1,24 @@
 {    
-    "mail": {
-        "enabled": false,
-        "api_key": "xkeysib-secret_api_key",
-        "sender": {
-            "name": "cakecms",
-            "email": "cakecms@domain.tld"
+    "notifications": {
+        "discord": {
+            "enabled": false,
+            "webhooks": [
+                "https://discord.com/api/webhooks/xxx"
+            ]
         },
-        "receiver": {
-            "name": "My Name",
-            "email": "mail@domain.tld"
+        "mail": {
+            "enabled": false,
+            "api_key": "xkeysib-xxx",
+            "sender": {
+                "name": "cakecms",
+                "email": "cakecms@domain.tld"
+            },
+            "receivers": [
+                {
+                    "name": "Name Lastname",
+                    "email": "mail@domain.tld"
+                }
+            ]
         }
     },
     "cms": {
@@ -18,7 +28,7 @@
             "password": "s3cur3Pa55word",
             "2FA": {
                 "enabled": true,
-                "secret_base32": "BA5E32"
+                "secret_base32": "BA5E32S3CR3T"
             }
         },
         "dcms": {
@@ -33,12 +43,12 @@
     },
     "courses": {
         "mfi": {
-            "url": "https://cms.sic.saarland/mfi",
+            "url": "https://cms.sic.saarland/mfi_xxx",
             "points": true,
             "materials": true
         },
         "prog": {
-            "url": "https://cms.sic.saarland/prog",
+            "url": "https://cms.sic.saarland/prog_xxx",
             "points": true,
             "materials": true
         }

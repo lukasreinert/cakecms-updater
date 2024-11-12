@@ -42,10 +42,10 @@ def logging(msg, level='LOG'):
 
 def send_notification(subject, main_info, all_info=''):        
     if cakecms['notifications']['discord']['enabled']:
-        send_discord(subject, main_info, all_info='')  
+        send_discord(subject, main_info, all_info)  
         
     if cakecms['notifications']['mail']['enabled']:
-        send_email(subject, main_info, all_info='')
+        send_email(subject, main_info, all_info)
 
 
 def send_discord(subject, main_info, all_info=''):

@@ -23,10 +23,10 @@ Install neccessary python packages with `pip install -r requirements.txt`
 What are they used for?
 
 -   **beautifulsoup4:** Parses and extracts data from HTML or XML pages.
--   **discord-webhook:** - Sends automated messages or alerts to Discord channels.
--   **markdownify:** - Converts HTML content into clean Markdown format.
--   **pyotp:** - Generates time-based one-time passwords (2FA codes).
--   **requests:** - Handles HTTP requests for interacting with web APIs or scraping sites.
+-   **discord-webhook:** Sends automated messages or alerts to Discord channels.
+-   **markdownify:** Converts HTML content into clean Markdown format.
+-   **pyotp:** Generates time-based one-time passwords (2FA codes).
+-   **requests:** Handles HTTP requests for interacting with web APIs or scraping sites.
 
 ## Notice
 

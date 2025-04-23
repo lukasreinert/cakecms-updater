@@ -73,7 +73,8 @@ def gather_materials(course, subdict, accordion_items):
         # get accordion title
         section_title = accordion_item.find('button', {'class': 'accordion-button'}).text.lower().replace(' ', '_')
         section_title = re.sub(r'[\n\t\r]*', '', section_title)
-        section_title = section_title.replace('(', '_(')
+        section_title = section_title.replace('_(', '(')
+        section_title = section_title.split("(")[0]
 
         # get table in accordion and skip if empty
         materials_tables = accordion_item.find_all('table', {'class': 'table'})

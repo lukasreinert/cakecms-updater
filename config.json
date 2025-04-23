@@ -1,40 +1,35 @@
-{    
+{
     "notifications": {
         "discord": {
             "enabled": false,
-            "webhooks": [
-                "https://discord.com/api/webhooks/xxx"
-            ]
+            "webhooks": ["https://discord.com/api/webhooks/xxx"]
         },
         "mail": {
-            "enabled": false,
-            "api_key": "xkeysib-xxx",
-            "sender": {
-                "name": "cakecms",
-                "email": "cakecms@domain.tld"
+            "enabled": true,
+            "smtp": {
+                "server": "smtp.domain.tld",
+                "port": 465,
+                "username": "cakecms@domain.tld",
+                "password": "smtp_password"
             },
-            "receivers": [
-                {
-                    "name": "Name Lastname",
-                    "email": "mail@domain.tld"
-                }
-            ]
+            "sender": "cakecms <cakecms@domain.tld>",
+            "receivers": ["recipient@domain.tld"]
         }
     },
     "cms": {
         "sic": {
             "url": "https://cms.sic.saarland",
             "username": "sic_username",
-            "password": "s3cur3Pa55word",
+            "password": "sic_password",
             "2FA": {
                 "enabled": true,
-                "secret_base32": "BA5E32S3CR3T"
+                "secret_base32": "sic_secret_base32"
             }
         },
         "dcms": {
             "url": "https://dcms.cs.uni-saarland.de",
             "username": "dcms_username",
-            "password": "diff3r3ntS3cr3t",
+            "password": "dcms_password",
             "2FA": {
                 "enabled": false,
                 "secret_base32": ""
@@ -42,13 +37,13 @@
         }
     },
     "courses": {
-        "mfi": {
-            "url": "https://cms.sic.saarland/mfi_xxx",
+        "mfi1": {
+            "url": "https://cms.sic.saarland/mfi1_mfcs1_wise2425",
             "points": true,
             "materials": true
         },
-        "prog": {
-            "url": "https://cms.sic.saarland/prog_xxx",
+        "prog1": {
+            "url": "https://dcms.cs.uni-saarland.de/prog1_22",
             "points": true,
             "materials": true
         }

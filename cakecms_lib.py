@@ -1,14 +1,14 @@
+import json
+import pyotp
+import smtplib
+import time
 from bs4 import BeautifulSoup
 from datetime import datetime
 from discord_webhook import DiscordWebhook
+from email.message import EmailMessage
 from markdownify import markdownify
 from os import path
 from requests.exceptions import Timeout
-from sib_api_v3_sdk.rest import ApiException
-import json
-import pyotp
-import sib_api_v3_sdk
-import time
 
 
 def get_path(file):
@@ -65,23 +65,31 @@ def send_discord(subject, main_info, all_info=''):
         logging(f'Exception when sending a discord message: {e}', 'ERROR')
 
 
-def send_email(subject, main_info, all_info=''):        
-    configuration = sib_api_v3_sdk.Configuration()
-    configuration.api_key['api-key'] = cakecms['notifications']['mail']['api_key']
-    api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
+def send_email(subject, main_info, all_info=''):
+    smtp_server = cakecms['notifications']['mail']['smtp']['server']
+    smtp_port = cakecms['notifications']['mail']['smtp']['port']
+    smtp_username = cakecms['notifications']['mail']['smtp']['username']
+    smtp_password = cakecms['notifications']['mail']['smtp']['password']
+
     html_content = '<html><body>'
     html_content += main_info
     html_content += all_info
     html_content += '</body></html>'
-    sender = cakecms['notifications']['mail']['sender']
+    
+    message = EmailMessage()
+    message["Subject"] = subject
+    message["From"] = cakecms['notifications']['mail']['sender']
+    message["To"] = ", ".join(cakecms['notifications']['mail']['receivers'])
+    message.set_content("This email requires an HTML-capable viewer.")
+    message.add_alternative(html_content, subtype="html")
 
     try:
-        for receiver in cakecms['notifications']['mail']['receivers']:
-            send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(sender=sender, to=[receiver], subject=subject, html_content=html_content)
-            api_instance.send_transac_email(send_smtp_email)
-        logging(f'Send email: {subject}')
-    except ApiException as e:
-        logging('Exception when calling SMTPApi -> send_transac_email: %s\n' % e, 'ERROR')
+        with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
+            server.login(smtp_username, smtp_password)
+            server.send_message(message)
+            logging(f'Send email: {subject}')
+    except Exception as e:
+        logging('Exception when sending mail -> smtp: %s\n' % e, 'ERROR')
 
 
 def login(session):
